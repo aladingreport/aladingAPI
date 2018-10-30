@@ -69,23 +69,22 @@ function clickMiniProgram()
                     },
                     success(res) 
                     {
-                      // 打开成功
-                    }
-                })
-
-                wx.request
-                ({
-                    url: 'https://aladingreport.quyue.ren/sell',
-                    method:'POST',
-                    data: 
-                    {
-                        tradeid:tradeid,//交易ID
-                        sellcode:sellcode //乙方的登录code
-                    },
-                
-                    success (res) 
-                    {
-                        console.log(res.data)
+                        // 打开成功
+                        wx.request
+                        ({
+                            url: 'https://aladingreport.quyue.ren/sell',
+                            method:'POST',
+                            data: 
+                            {
+                                tradeid:tradeid,//交易ID
+                                sellcode:sellcode //乙方的登录code
+                            },
+                        
+                            success (res) 
+                            {
+                                console.log(res.data)
+                            }
+                        })
                     }
                 })
             } 
