@@ -13,6 +13,7 @@ wx.login
     {
         if (res.code) 
         {
+            console.log(res)
             var sellcode = res.code
         } 
     }
@@ -29,7 +30,8 @@ wx.navigateToMiniProgram
     },
     success(res) 
     {
-      // 打开成功
+        console.log(res)
+        // 打开成功
     }
 })
 
@@ -46,7 +48,7 @@ wx.request
 
     success (res) 
     {
-        console.log(res.data)
+        console.log(res)
     }
 })
 
@@ -59,6 +61,9 @@ function clickMiniProgram()
         {
             if (res.code) 
             {
+                console.log(res)
+                var sellcode = res.code
+
                 wx.navigateToMiniProgram
                 ({
                     appId: '', //甲方小程序AppID
@@ -69,6 +74,7 @@ function clickMiniProgram()
                     },
                     success(res) 
                     {
+                        console.log(res)
                         // 打开成功
                         wx.request
                         ({
@@ -82,7 +88,7 @@ function clickMiniProgram()
                         
                             success (res) 
                             {
-                                console.log(res.data)
+                                console.log(res)
                             }
                         })
                     }
@@ -111,6 +117,7 @@ wx.login
     {
         if (res.code) 
         {
+            console.log(res)
             var buycode = res.code
         } 
     }
@@ -130,7 +137,7 @@ wx.request
 
     success (res) 
     {
-        console.log(res.data)
+        console.log(res)
     }
 })
 
@@ -151,6 +158,7 @@ function onLaunch(options)
                 {
                     if (res.code) 
                     {
+                        console.log(res)
                         var buycode = res.code
     
                         wx.request
@@ -165,7 +173,7 @@ function onLaunch(options)
                             },
                             success (res) 
                             {
-                                console.log(res.data)
+                                console.log(res)
                             }
                         })
                     } 
@@ -174,3 +182,29 @@ function onLaunch(options)
         }
     }
 }
+
+//三 注意事项
+//1 请本地做好数据记录
+//2 记得将 https://aladingreport.quyue.ren 添加为小程序的 request合法域名
+//3 上报返回结果为以下内容
+
+// 0=>'数据正常',
+// 41001=>'tradeid不能为空',
+// 41002=>'sellcode不能为空',
+// 41003=>'buycode不能为空',
+// 41004=>'tradeid不正确',
+// 41005=>'没有甲方的appid',
+// 41006=>'没有甲方的appsecret',
+// 41007=>'没有甲方的appid和appsecret',
+// 41008=>'没有乙方的appid',
+// 41009=>'没有乙方的appsecret',
+// 41010=>'没有乙方的appid和appsecret',
+// 51001=>'交易未开始,不能上报数据',
+// 51002=>'交易已拒绝,不能上报数据',
+// 51003=>'交易已删除,不能上报数据',
+// 51004=>'交易已结算',
+// 51005=>'交易状态异常,不能上报数据',
+// 51006=>'buycode无法获取用户信息',
+// 51007=>'sellcode无法获取用户信息',
+// 51008=>'sellcode没有匹配的用户数据',
+// 51009=>'数据正常,已存在此用户的openid',
