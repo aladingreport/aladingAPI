@@ -35,7 +35,7 @@ wx.navigateToMiniProgram
     }
 })
 
-//4 用POST方法上报阿拉丁服务器
+//4 打开小程序成功后，用POST方法上报阿拉丁服务器
 wx.request
 ({
     url: 'https://aladingreport.quyue.ren/sell',
