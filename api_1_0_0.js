@@ -184,9 +184,9 @@ function onLaunch(options)
 }
 
 //三 注意事项
-//1 请本地做好数据记录
+//1 API接入前，请确保甲乙双方的小程序绑定了同一个公众号
 //2 记得将 https://aladingreport.quyue.ren 添加为小程序的 request合法域名
-//3 上报返回结果为以下内容
+//3 上报API返回结果如下
 
 // 0=>'数据正常',
 // 41001=>'tradeid为空',
